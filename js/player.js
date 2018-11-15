@@ -6,7 +6,8 @@ function Player(x, y, direction) {
 
     this.weapons = [
         new Weapon('Knife', 1, new Bitmap('assets/knife_hand.png', 319, 320)), 
-        new Weapon('Gun', 2, new Bitmap('assets/knife_hand2.png', 319, 320))
+        new Weapon('Gun', 2, new Bitmap('assets/knife_hand2.png', 319, 320)),
+        new Weapon('SMG', 3, new Bitmap('assets/knife_hand2.png', 319, 320))
     ];
 
     this.actualWeapon = this.weapons[0];
@@ -45,6 +46,12 @@ Player.prototype.update = function(controls, map, seconds) {
     }
     if (controls.select_gun){
         this.actualWeapon = this.weapons[1];
+        this.actualWeapon.displayInfo();
+    }
+
+
+    if (controls.select_smg){
+        this.actualWeapon = this.weapons[2];
         this.actualWeapon.displayInfo();
     }
 };
